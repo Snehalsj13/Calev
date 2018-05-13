@@ -14,12 +14,6 @@ module.exports = function(environment) {
     storageBucket: "ember-test-9067b.appspot.com",
     messagingSenderId: "953270278653"
     },
-    gmap: {
-      exclude: true,
-      libraries: ['places', 'geometry'],
-      key: 'AIzaSyBjbWTA62z3lk-vPi3U697zQa6S-HD8QDs',
-      channel: 'my-google-map-api-channel',
-    },
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {

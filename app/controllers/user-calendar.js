@@ -8,26 +8,6 @@ export default Controller.extend({
   mainData: {},
   calDiagram: Ember.A(),
   init() {
-    // Get appointments data
-    // var id = this.get('authentication').getTok();
-    // var promise6 = new Promise((resolve, reject) => {
-    //   var data = this.get('firebaseApp').database().ref().child('users/' + id);
-    //   data.on('value', (snapshot) => {
-    //     data = snapshot.val();
-    //     this.mainData = data;
-    //     if (this.mainData != null) {
-    //       this.updateCalendar();
-    //     }
-    //     resolve();
-    //   }, (error) => {
-    //     Error(error);
-    //     reject();
-    //   });
-    // });
-    //
-    // promise6.then(() => {
-    //
-    // });
   },
   checkIfTwoApptExist() {
     var count = 0;
@@ -59,10 +39,18 @@ export default Controller.extend({
                 }
               );
           }
+        },
+        go_back: {
+          text: 'Go back',
+          click: () => {
+            this.transitionToRoute('userDash').then(() => {
+              location.reload();
+            });
+          }
         }
       },
       header: {
-        left: '',
+        left: 'go_back',
         center: 'title',
         right: 'add_event',
       },
@@ -295,7 +283,11 @@ export default Controller.extend({
     promise6.then(() => {
       $('.calendar').fullCalendar('removeEvents');
       for (var i in this.calDiagram) {
-        $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
+        if(this.calDiagram[i].cId === this.mainData.uid) {
+          $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
+        } else {
+          continue;
+        }
       }
     });
   }

@@ -2,11 +2,13 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   uidVal: '',
+  qParam: '',
   beforeModel(transition) {
-    if(transition.queryParams.cN) {
-      this.uidVal = transition.queryParams.cN;
-    } else {
+    if(transition.queryParams.cN === undefined) {
+      console.log(transition);
       this.transitionTo('index');
+    } else {
+      this.uidVal = transition.queryParams.cN;
     }
   },
   setupController() {

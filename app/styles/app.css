@@ -695,6 +695,7 @@ form button:hover {
   background: #222F3D;
   display:inline-block;
   cursor: pointer;
+  opacity:0;
 }
 
 .insideText {

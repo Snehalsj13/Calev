@@ -20,7 +20,9 @@ export default Controller.extend({
       this.set('modal3', true);
     },
     goToDash() {
-      this.transitionToRoute('userDash');
+      this.transitionToRoute('userDash').then(() => {
+        location.reload();
+      });
     }
   }
 });
