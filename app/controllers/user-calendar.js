@@ -122,7 +122,11 @@ export default Controller.extend({
               promise.then(() => {
                 $('.calendar').fullCalendar('removeEvents');
                 for (var i in this.calDiagram) {
-                  $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
+                  if(this.calDiagram[i].cId === this.mainData.uid) {
+                    $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
+                  } else {
+                    continue;
+                  }
                 }
               });
             }
@@ -158,7 +162,11 @@ export default Controller.extend({
             promise.then(() => {
               $('.calendar').fullCalendar('removeEvents');
               for (var j in this.calDiagram) {
-                $('.calendar').fullCalendar('renderEvent', this.calDiagram[j], true);
+                if(this.calDiagram[j].cId === this.mainData.uid) {
+                  $('.calendar').fullCalendar('renderEvent', this.calDiagram[j], true);
+                } else {
+                  continue;
+                }
               }
             });
           });
@@ -200,7 +208,11 @@ export default Controller.extend({
           promise.then(() => {
             $('.calendar').fullCalendar('removeEvents');
             for (var j in this.calDiagram) {
-              $('.calendar').fullCalendar('renderEvent', this.calDiagram[j], true);
+              if(this.calDiagram[j].cId === this.mainData.uid) {
+                $('.calendar').fullCalendar('renderEvent', this.calDiagram[j], true);
+              } else {
+                continue;
+              }
             }
           });
         });
@@ -230,7 +242,11 @@ export default Controller.extend({
           promise.then(() => {
             $('.calendar').fullCalendar('removeEvents');
             for (var i in this.calDiagram) {
-              $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
+              if(this.calDiagram[i].cId === this.mainData.uid) {
+                $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
+              } else {
+                continue;
+              }
             }
           });
         });

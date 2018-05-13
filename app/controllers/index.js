@@ -3,9 +3,6 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   authentication: Ember.inject.service(),
   isAuth: null,
-  init() {
-    this.isAuth = this.get('authentication').isAuthenticated();
-  },
   actions: {
     Logout() {
       this.get('authentication').logout();
