@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="header__logo-box">
+    {{fa-icon "diamond" size=5 class="header__logo"}}
+  </div>
+
+  {{#if isAuth}}
+    <div class="header__logout-box">
+      <a href="#" {{action 'Logout'}} class="btn btn--white btn--animated">Logout</a>
+    </div>
+
+  {{else}}
+    <div class="header__signup-box">
+      <a href="#" {{action 'toggleSignup'}} class="btn btn--white btn--animated">Signup</a>
+    </div>
+
+    <div class="header__login-box">
+      <a href="#" {{action 'toggleLogin'}} class="btn btn--white btn--animated">Login</a>
+    </div>
+
+  {{/if}}
+
+  <div class="header__text-box">
+    <h1 class="heading-primary">
+      <span class="heading-primary--main">Calev</span>
+      <span class="heading-primary--sub">Is where things get organized</span>
+    </h1>
+  {{#if isAuth}}
+    <div class="header__dash-box">
+      <a href="#" {{action 'goToDash'}} class="btn btn--white btn--animated">Go To Dashboard</a>
+    </div>
+  {{/if}}
+  </div>
+
+</header>

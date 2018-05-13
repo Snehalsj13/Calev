@@ -1,0 +1,10 @@
+Modal related
+
+<a href="#" {{action 'toggleModalAbout'}} class="btn btn--white btn--animated">About</a>
+  {{#bs-modal-simple open=modal3 title="About" size="md" onHidden=(action (mut modal3) false)}}
+About
+  {{/bs-modal-simple}}
+
+Issues
+
+1. Fix calendar title & button

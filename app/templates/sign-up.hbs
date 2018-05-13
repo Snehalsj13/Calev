@@ -1,0 +1,116 @@
+<header class="header signInheader signUpheader" style="z-index: 1;">
+  <div class="login clearfix signUpheader1" style="position:absolute;">
+    <div class="redirLink" {{action 'switchCompany'}}><a href="#">Company Sign Up <span class="f-icon">{{fa-icon "angle-right"}}</span></a></div>
+    <div class="tabs">
+        <span align="center">
+                <a style="margin:0 auto;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-align: center;-ms-flex-align: center;align-items: center;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;font-size: 2.3em;">User Sign Up</a>
+        </span>
+    </div>
+    <form>
+      <ul>
+        <li>
+          <label class="floating sr-only">Name</label>
+          {{input
+            type='text'
+            class='label-float'
+            value=name2
+            placeholder='Name'
+            name=name2
+          }}
+        </li>
+
+        <li>
+          <label class="floating sr-only">Email</label>
+          {{input
+            type='email'
+            class='label-float'
+            value=email
+            placeholder='Email'
+            name=email
+          }}
+        </li>
+
+        <li class="padClass">
+          <label class="floating sr-only">Password</label>
+          {{input
+            type='password'
+            class='label-float'
+            value=password
+            placeholder='Password'
+            name=pass
+          }}
+        </li>
+
+      </ul>
+      <button {{action 'signUp' 'password'}} type="submit">Sign Up</button>
+    </form>
+  </div>
+  <div class="login clearfix signUpheader2">
+    <div class="redirLink" {{action 'switchUser'}}><a href="#">User Sign Up <span class="f-icon">{{fa-icon "angle-right"}}</span></a></div>
+    <div class="tabs">
+        <span align="center">
+                <a style="margin:0 auto;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-align: center;-ms-flex-align: center;align-items: center;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;font-size: 2.3em;">Company Sign Up</a>
+            </span>
+    </div>
+    <form>
+      <ul>
+        <li>
+          <label class="floating sr-only">Company Name</label>
+          {{input
+            type='text'
+            class='label-float'
+            value=name
+            placeholder='Company Name'
+            name=name
+          }}
+        </li>
+
+        <li>
+          <label class="floating sr-only">Address</label>
+          {{input
+            type='text'
+            class='label-float'
+            value=address
+            placeholder='Address'
+            name=address
+          }}
+        </li>
+
+        <li>
+          <label class="floating sr-only">Email</label>
+          {{input
+            type='email'
+            class='label-float'
+            value=email1
+            placeholder='Email'
+            name=email1
+          }}
+        </li>
+
+        <li>
+          <label class="floating sr-only">Password</label>
+          {{input
+            type='password'
+            class='label-float'
+            value=password1
+            placeholder='Password'
+            name=password1
+          }}
+        </li>
+
+        <li>
+          <label class="floating sr-only">Timeline</label>
+          <select class='timeline' class="label-float">
+            <option disabled selected> -- Timeline -- </option>
+            <option value="1 Week">1 Week</option>
+            <option value="2 Weeks">2 Weeks</option>
+            <option value="3 Weeks">3 Weeks</option>
+            <option value="1 Month">1 Month</option>
+          </select>
+        </li>
+
+      </ul>
+      <button {{action 'companySignUp' 'password'}} type="submit">Sign Up</button>
+    </form>
+  </div>
+</header>
