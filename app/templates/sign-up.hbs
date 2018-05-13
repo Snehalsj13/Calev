@@ -67,12 +67,12 @@
 
         <li>
           <label class="floating sr-only">Address</label>
-          {{input
-            type='text'
-            class='label-float'
+          {{g-autocomplete
             value=address
+            on-select=(action "showSuggestions")
             placeholder='Address'
             name=address
+            class='label-float'
           }}
         </li>
 

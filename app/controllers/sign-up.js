@@ -5,6 +5,8 @@ export default Controller.extend({
   firebaseApp: Ember.inject.service(),
   authentication: Ember.inject.service(),
   toastMessages: Ember.inject.service(),
+  lat: '',
+  long: '',
   validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
@@ -69,6 +71,8 @@ export default Controller.extend({
       var address = this.get('address');
       var email = this.get('email1');
       var pass = this.get('password1');
+      var lat = this.get('lat');
+      var long = this.get('long');
       var timelineEl = $(document.querySelectorAll('.timeline'));
       var timeline = timelineEl.find(":selected").text();
 
@@ -103,7 +107,9 @@ export default Controller.extend({
               name: name,
               address: address,
               timeline: timeline,
-              company: true
+              company: true,
+              lat: lat,
+              long: long
             }
           ).then(() => {
             var message = '<p>Signed up successfully. Please log in to the application.</p>'
@@ -156,6 +162,14 @@ export default Controller.extend({
           el.css('opacity', '1');
           el.show();
         });
+    },
+    showSuggestions: function(place) {
+      location: this.set('address', place.place.formatted_address);
+      lat: this.set('lat', place.lat);
+      long: this.set('long', place.lng);
+    },
+    autocompleteError(err) {
+      window.alert(`Unable to find place for ${err.input}`);
     }
   }
 });
