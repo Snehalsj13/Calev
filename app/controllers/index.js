@@ -21,7 +21,7 @@ export default Controller.extend({
     },
     goToDash() {
       this.transitionToRoute('userDash').then(() => {
-        location.reload();
+        // If you want to do something here
       });
     }
   }

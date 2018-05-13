@@ -5,6 +5,8 @@ export default Route.extend({
     didTransition() {
       var controller = this.controllerFor('userDash');
 
+      controller.listOfCompanies = [];
+
       // Get list of all companies
       var promise = new Promise((resolve, reject) => {
         var data = controller.get('firebaseApp').database().ref().child('users/');

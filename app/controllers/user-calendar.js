@@ -44,7 +44,7 @@ export default Controller.extend({
           text: 'Go back',
           click: () => {
             this.transitionToRoute('userDash').then(() => {
-              location.reload();
+              // If you want to do something here
             });
           }
         }

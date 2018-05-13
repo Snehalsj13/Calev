@@ -5,7 +5,6 @@ export default Route.extend({
   qParam: '',
   beforeModel(transition) {
     if(transition.queryParams.cN === undefined) {
-      console.log(transition);
       this.transitionTo('index');
     } else {
       this.uidVal = transition.queryParams.cN;
