@@ -33,7 +33,7 @@ export default Route.extend({
         promise12.then((el) => {
           var promise2 = new Promise((resolve, reject) => {
             for (var i = 0; i < controller.listOfCompanies.length; i++) {
-              el.append('<a data-uid="' + controller.listOfCompanies[i].uid + '" class="boxCompany"><span class="insideText">' + controller.listOfCompanies[i].name + '</span></a>');
+              el.append('<a data-uid="' + controller.listOfCompanies[i].uid + '" class="boxCompany">' + controller.listOfCompanies[i].name + '</a>');
             }
             resolve();
           });

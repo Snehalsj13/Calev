@@ -185,10 +185,23 @@ p {
   right: 4rem;
 }
 
-.header__logout-box {
+.header__logout-box, .header__comcal-box, .header__logoutcomcal-box, .header__logoutcomcal-box-2 {
   position: absolute;
   top: 4rem;
   right: 4rem;
+}
+
+.header__comcal-box {
+  right:4rem;
+  z-index:1;
+}
+
+.header__logoutcomcal-box {
+  left:4rem;
+}
+
+.header__logoutcomcal-box-2 {
+  left:19rem;
 }
 
 .header__logo {
@@ -633,8 +646,12 @@ form button:hover {
   background-color: #0082c8;
   border-radius: 0;
   color:white;
-  margin-top:10px !important;
-  margin-right:10px !important;
+  margin-top:19px !important;
+  margin-right:13px !important;
+}
+
+.fc-add_event-button::after {
+  display:none;
 }
 
 .fc-go_back-button {
@@ -646,8 +663,12 @@ form button:hover {
   background-color: #0082c8;
   border-radius: 0;
   color:white;
-  margin-top:10px !important;
-  margin-left:10px !important;
+  margin-top:19px !important;
+  margin-left:13px !important;
+}
+
+.fc-go_back-button::after {
+  display:none;
 }
 
 .fc-toolbar {
@@ -655,10 +676,7 @@ form button:hover {
 }
 
 .fc-center {
-  position:absolute;
-  padding-top:10px;
-  top:50%;
-  transform: translate(0%, -50%);
+  padding-top:15px;
 }
 
 /* Company Calendar end */
@@ -666,7 +684,7 @@ form button:hover {
 /* User dashboard */
 
 .userDashHeader {
-  background: linear-gradient(135deg, #CB356B 0%, #BD3F32 100%);
+  background: linear-gradient(135deg, #007991 0%, #78ffd6 100%);
   position:relative;
 }
 
@@ -683,7 +701,19 @@ form button:hover {
   text-align: center;
 }
 
-.mainBox {
+.header__logout-box-2 {
+  position:absolute;
+  top:5%;
+  right:3%;
+}
+
+.header__goback-box-2 {
+  position:absolute;
+  top:5%;
+  left:3%;
+}
+
+.mainBox,.mainBox1 {
   position:absolute;
   top: 15%;
   left: 50%;
@@ -698,7 +728,11 @@ form button:hover {
   padding-top:22px;
 }
 
-.boxCompany {
+.mainBox1 {
+  display:block;
+}
+
+.boxCompany,.boxCompany1 {
   position: relative;
   padding: 0;
   margin: 4px;
@@ -709,16 +743,52 @@ form button:hover {
   display:inline-block;
   cursor: pointer;
   opacity:0;
+  color:#fff;
+  text-decoration:none;
+  border-radius: 10px;
 }
 
-.insideText {
-  color:white;
+.boxCompany, .boxCompany1 {
+  position: relative;
+  padding: 0;
+  margin: 4px;
+  width: 270px;
+  height: 140px;
+  overflow: hidden;
+  background: #222F3D;
+  display:inline-block;
+  cursor: pointer;
+  opacity:0;
+  color:#fff;
+  text-decoration:none;
   font-size:1.3em;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  position: absolute;
+  vertical-align: middle;
+  text-align:center;
+  line-height:140px;
+  font-weight:bold;
+}
+
+.boxCompany1 {
+  padding-top: 22px;
+  line-height:30px;
+}
+
+.boxCompany:hover {
+  text-decoration:none;
+  color:white;
+}
+
+.boxCompany1:hover {
+  text-decoration:none;
+  color:white;
+}
+
+.middle {
+  position:absolute;
   top:50%;
   left:50%;
+  transform: translate(-50%, -50%);
+  color:white;
   font-weight:bold;
 }
 

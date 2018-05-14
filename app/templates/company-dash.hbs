@@ -1,1 +1,18 @@
-<p>Company dashboard here</p>
+<header class="header userDashHeader clearfix">
+  <div class="header__text-box header__text-box--2">
+    <h1 class="heading-primary">
+      <span class="heading-primary--sub heading-primary--sub--animated">List of appointments</span>
+    </h1>
+  </div>
+  <div class='mainBox1'>
+  </div>
+  <div class="header__comcal-box">
+    <a href="#" {{action 'goToCompanyCalendar'}} class="btn btn--white btn--animated">Go to calendar</a>
+  </div>
+  <div class="header__logoutcomcal-box">
+  <a href="#" {{action 'goBackToIndex'}} class="btn btn--white btn--animated btn--logout">Go back</a>
+  </div>
+  <div class="header__logoutcomcal-box-2">
+    <a href="#" {{action 'Logout'}} class="btn btn--white btn--animated btn--logout-2">Logout</a>
+  </div>
+</header>

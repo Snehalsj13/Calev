@@ -1,14 +1,14 @@
 import Controller from '@ember/controller';
-import Ember from 'ember';
 
 export default Controller.extend({
-  firebaseApp: Ember.inject.service(),
   authentication: Ember.inject.service(),
+  firebaseApp: Ember.inject.service(),
   toastMessages: Ember.inject.service(),
-  listOfCompanies: [],
-  init() {
-  },
+  listOfAppointments: [],
   actions: {
+    goToCompanyCalendar() {
+      this.transitionToRoute('companyCalendar', {queryParams: {cN: this.get('authentication').getTok()}})
+    },
     goBackToIndex() {
       this.transitionToRoute('index');
     },

@@ -17,7 +17,6 @@ export default Service.extend({
   logout() {
     this.get('firebaseApp').auth().signOut();
     localStorage.removeItem('isLoggedIn');
-    location.reload();
   },
   getTok() {
     const userKey = Object.keys(window.localStorage)

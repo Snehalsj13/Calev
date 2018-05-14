@@ -23,6 +23,8 @@ export default Controller.extend({
   initialize_calendar() {
     var el = $(document.querySelectorAll('.calendar'));
     var calendar = $(el);
+    var el3 = $(document.querySelectorAll('.middle'));
+    el3.append(this.mainData.name);
     calendar.fullCalendar({
       customButtons: {
         add_event: {
@@ -33,6 +35,10 @@ export default Controller.extend({
               }).then(
                 (response) => {
                   // Response
+                  var message = '<p>Appointments saved successfully. If you want to modify them, please click on any of your appointments.</p>';
+                  var el = this.get('toastMessages');
+                  el.SnackBar(message);
+                  el.displayMessage(4800);
                 },
                 (error) => {
                   Error(error);
@@ -160,6 +166,10 @@ export default Controller.extend({
               }
             });
             promise.then(() => {
+              var message = '<p>Please click on "Save Appointments" button to finalize this action.</p>';
+              var el = this.get('toastMessages');
+              el.SnackBar(message);
+              el.displayMessage(4800);
               $('.calendar').fullCalendar('removeEvents');
               for (var j in this.calDiagram) {
                 if(this.calDiagram[j].cId === this.mainData.uid) {

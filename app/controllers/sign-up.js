@@ -79,6 +79,7 @@ export default Controller.extend({
         var el = this.get('toastMessages');
         el.SnackBar(message);
         el.displayMessage(4800);
+        return;
       } else {
         if (!this.validateEmail(email)) {
           htmlMessage = htmlMessage + '<p>Please enter a valid email</p>'
