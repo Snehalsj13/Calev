@@ -54,7 +54,10 @@ export default Controller.extend({
             var message = '<p>Signed up successfully. Please log in to the application.</p>'
             var el = this.get('toastMessages');
             el.SnackBar(message);
-            el.displayMessage(4800);
+            el.displayMessage(4800)
+            setTimeout(() => {
+              this.transitionToRoute('sign-in');
+            },3500);
           })
         }, (error) => {
           var message = '<p>Could not sign you up. Please try again later</p>'
@@ -107,10 +110,13 @@ export default Controller.extend({
               company: true
             }
           ).then(() => {
-            var message = '<p>Signed up successfully. Please log in to the application.</p>'
+            var message = '<p>Signed up successfully. Please log in to the application.</p>';
             var el = this.get('toastMessages');
             el.SnackBar(message);
             el.displayMessage(4800);
+            setTimeout(() => {
+              this.transitionToRoute('sign-in');
+            },3500);
           })
         }, (error) => {
           var message = "<p>There was some issue signing you up. Please try again later";

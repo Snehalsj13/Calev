@@ -185,7 +185,7 @@ p {
   right: 4rem;
 }
 
-.header__logout-box, .header__comcal-box, .header__logoutcomcal-box, .header__logoutcomcal-box-2 {
+.header__logout-box, .header__comcal-box, .header__logoutcomcal-box, .header__logoutcomcal-box-2, .header__logoutcomcals-box {
   position: absolute;
   top: 4rem;
   right: 4rem;
@@ -196,7 +196,7 @@ p {
   z-index:1;
 }
 
-.header__logoutcomcal-box {
+.header__logoutcomcal-box, .header__logoutcomcals-box {
   left:4rem;
 }
 

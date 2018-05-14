@@ -10,6 +10,9 @@ export default Controller.extend({
     this.isAuth = this.get('authentication').isAuthenticated();
   },
   actions: {
+    goBackToIndex() {
+      this.transitionToRoute('index');
+    },
     signIn() {
       const email = this.get('email');
       const pass = this.get('password');
