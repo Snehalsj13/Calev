@@ -14,6 +14,9 @@ export default Controller.extend({
     return re.test(String(pass));
   },
   actions: {
+    goBackToIndex() {
+      this.transitionToRoute('index');
+    },
     signUp() {
       var name = this.get('name2');
       var email = this.get('email');
