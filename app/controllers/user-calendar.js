@@ -7,8 +7,7 @@ export default Controller.extend({
   toastMessages: Ember.inject.service(),
   mainData: {},
   calDiagram: Ember.A(),
-  init() {
-  },
+  init() {},
   checkIfTwoApptExist() {
     var count = 0;
     for (var i = 0; i < this.calDiagram.length; i++) {
@@ -30,20 +29,20 @@ export default Controller.extend({
         add_event: {
           text: 'Save Appointments',
           click: () => {
-              this.get('firebaseApp').database().ref('appointments/').set({
-                calDiagram: this.calDiagram
-              }).then(
-                (response) => {
-                  // Response
-                  var message = '<p>Appointments saved successfully. If you want to modify them, please click on any of your appointments.</p>';
-                  var el = this.get('toastMessages');
-                  el.SnackBar(message);
-                  el.displayMessage(4800);
-                },
-                (error) => {
-                  Error(error);
-                }
-              );
+            this.get('firebaseApp').database().ref('appointments/').set({
+              calDiagram: this.calDiagram
+            }).then(
+              (response) => {
+                // Response
+                var message = '<p>Appointments saved successfully. If you want to modify them, please click on any of your appointments.</p>';
+                var el = this.get('toastMessages');
+                el.SnackBar(message);
+                el.displayMessage(4800);
+              },
+              (error) => {
+                Error(error);
+              }
+            );
           }
         },
         go_back: {
@@ -63,19 +62,27 @@ export default Controller.extend({
       views: {
         week: {
           type: 'agendaWeek',
-          duration: {weeks: 1}
+          duration: {
+            weeks: 1
+          }
         },
         week2: {
           type: 'agendaWeek',
-          duration: {weeks: 2}
+          duration: {
+            weeks: 2
+          }
         },
         week3: {
           type: 'agendaWeek',
-          duration: {weeks: 3}
+          duration: {
+            weeks: 3
+          }
         },
         week4: {
           type: 'agendaWeek',
-          duration: {weeks: 4}
+          duration: {
+            weeks: 4
+          }
         },
       },
       allDaySlot: false,
@@ -128,7 +135,7 @@ export default Controller.extend({
               promise.then(() => {
                 $('.calendar').fullCalendar('removeEvents');
                 for (var i in this.calDiagram) {
-                  if(this.calDiagram[i].cId === this.mainData.uid) {
+                  if (this.calDiagram[i].cId === this.mainData.uid) {
                     $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
                   } else {
                     continue;
@@ -142,7 +149,7 @@ export default Controller.extend({
       },
       eventClick: (event) => {
         var promise8 = new Promise((resolve, reject) => {
-          if(event.uId !== this.get('authentication').getTok()) {
+          if (event.uId !== this.get('authentication').getTok()) {
             var message = '<p>You can only select or modify your appointments. Please make a valid selection</p>';
             var el = this.get('toastMessages');
             el.SnackBar(message);
@@ -172,7 +179,7 @@ export default Controller.extend({
               el.displayMessage(4800);
               $('.calendar').fullCalendar('removeEvents');
               for (var j in this.calDiagram) {
-                if(this.calDiagram[j].cId === this.mainData.uid) {
+                if (this.calDiagram[j].cId === this.mainData.uid) {
                   $('.calendar').fullCalendar('renderEvent', this.calDiagram[j], true);
                 } else {
                   continue;
@@ -184,7 +191,7 @@ export default Controller.extend({
       },
       eventDrop: (event, delta, revertFunc) => {
         var promise10 = new Promise((resolve, reject) => {
-          if(event.uId !== this.get('authentication').getTok()) {
+          if (event.uId !== this.get('authentication').getTok()) {
             var message = '<p>You can only select or modify your appointments. Please make a valid selection</p>';
             var el = this.get('toastMessages');
             el.SnackBar(message);
@@ -218,7 +225,7 @@ export default Controller.extend({
           promise.then(() => {
             $('.calendar').fullCalendar('removeEvents');
             for (var j in this.calDiagram) {
-              if(this.calDiagram[j].cId === this.mainData.uid) {
+              if (this.calDiagram[j].cId === this.mainData.uid) {
                 $('.calendar').fullCalendar('renderEvent', this.calDiagram[j], true);
               } else {
                 continue;
@@ -229,7 +236,7 @@ export default Controller.extend({
       },
       eventResize: (event, delta, revertFunc) => {
         var promise9 = new Promise((resolve, reject) => {
-          if(event.uId !== this.get('authentication').getTok()) {
+          if (event.uId !== this.get('authentication').getTok()) {
             var message = '<p>You can only select or modify your appointments. Please make a valid selection</p>';
             var el = this.get('toastMessages');
             el.SnackBar(message);
@@ -252,7 +259,7 @@ export default Controller.extend({
           promise.then(() => {
             $('.calendar').fullCalendar('removeEvents');
             for (var i in this.calDiagram) {
-              if(this.calDiagram[i].cId === this.mainData.uid) {
+              if (this.calDiagram[i].cId === this.mainData.uid) {
                 $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
               } else {
                 continue;
@@ -267,7 +274,7 @@ export default Controller.extend({
         element.find('.fc-time').empty();
       },
       eventAfterRender: (event, element, view) => {
-        if(event.uId === this.get('authentication').getTok()) {
+        if (event.uId === this.get('authentication').getTok()) {
           element.css('background-color', '#11998e');
         }
       }
@@ -295,7 +302,7 @@ export default Controller.extend({
           var data = snapshot.val();
           data = Object.values(data);
           this.calDiagram = [];
-          for (var i=0; i< data.length; i++) {
+          for (var i = 0; i < data.length; i++) {
             this.calDiagram.push(data[i]);
           }
           resolve();
@@ -309,7 +316,7 @@ export default Controller.extend({
     promise6.then(() => {
       $('.calendar').fullCalendar('removeEvents');
       for (var i in this.calDiagram) {
-        if(this.calDiagram[i].cId === this.mainData.uid) {
+        if (this.calDiagram[i].cId === this.mainData.uid) {
           $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
         } else {
           continue;

@@ -46,7 +46,11 @@ export default Route.extend({
                   resolve();
                 });
                 promise11.then(() => {
-                  controller.transitionToRoute('user-calendar', {queryParams: {cN: redircN}});
+                  controller.transitionToRoute('user-calendar', {
+                    queryParams: {
+                      cN: redircN
+                    }
+                  });
                 });
               });
               resolve();

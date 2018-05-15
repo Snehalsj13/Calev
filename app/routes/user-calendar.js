@@ -4,7 +4,7 @@ export default Route.extend({
   uidVal: '',
   qParam: '',
   beforeModel(transition) {
-    if(transition.queryParams.cN === undefined) {
+    if (transition.queryParams.cN === undefined) {
       this.transitionTo('index');
     } else {
       this.uidVal = transition.queryParams.cN;
@@ -16,8 +16,8 @@ export default Route.extend({
     var promise = new Promise((resolve, reject) => {
       var data = controller.get('firebaseApp').database().ref('users').child(this.uidVal);
       data.on('value', (snapshot) => {
-          data = snapshot.val();
-          controller.mainData = data;
+        data = snapshot.val();
+        controller.mainData = data;
         resolve();
       }, (error) => {
         Error(error);

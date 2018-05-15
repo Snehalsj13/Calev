@@ -46,21 +46,19 @@ export default Controller.extend({
         el.displayMessage(4800);
       } else {
         this.get('firebaseApp').auth().createUserWithEmailAndPassword(email, pass).then((userResponse) => {
-          this.get('firebaseApp').database().ref('users/' + userResponse.uid).set(
-            {
-              uid: userResponse.uid,
-              email: email,
-              name: name,
-              company: false
-            }
-          ).then(() => {
+          this.get('firebaseApp').database().ref('users/' + userResponse.uid).set({
+            uid: userResponse.uid,
+            email: email,
+            name: name,
+            company: false
+          }).then(() => {
             var message = '<p>Signed up successfully. Please log in to the application.</p>'
             var el = this.get('toastMessages');
             el.SnackBar(message);
             el.displayMessage(4800)
             setTimeout(() => {
               this.transitionToRoute('sign-in');
-            },3500);
+            }, 3500);
           })
         }, (error) => {
           var message = '<p>Could not sign you up. Please try again later</p>'
@@ -103,23 +101,21 @@ export default Controller.extend({
         el.displayMessage(4800);
       } else {
         this.get('firebaseApp').auth().createUserWithEmailAndPassword(email, pass).then((userResponse) => {
-          this.get('firebaseApp').database().ref('users/' + userResponse.uid).set(
-            {
-              uid: userResponse.uid,
-              email: email,
-              name: name,
-              address: address,
-              timeline: timeline,
-              company: true
-            }
-          ).then(() => {
+          this.get('firebaseApp').database().ref('users/' + userResponse.uid).set({
+            uid: userResponse.uid,
+            email: email,
+            name: name,
+            address: address,
+            timeline: timeline,
+            company: true
+          }).then(() => {
             var message = '<p>Signed up successfully. Please log in to the application.</p>';
             var el = this.get('toastMessages');
             el.SnackBar(message);
             el.displayMessage(4800);
             setTimeout(() => {
               this.transitionToRoute('sign-in');
-            },3500);
+            }, 3500);
           })
         }, (error) => {
           var message = "<p>There was some issue signing you up. Please try again later";

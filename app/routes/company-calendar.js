@@ -4,7 +4,7 @@ export default Route.extend({
   cidVal: '',
   qParam: '',
   beforeModel(transition) {
-    if(transition.queryParams.cN === undefined) {
+    if (transition.queryParams.cN === undefined) {
       this.transitionTo('index');
     } else {
       this.cidVal = transition.queryParams.cN;
@@ -19,7 +19,7 @@ export default Route.extend({
       var data = controller.get('firebaseApp').database().ref().child('appointments/calDiagram');
       data.on('value', (snapshot) => {
         var data = snapshot.val();
-        for (var i=0; i<data.length; i++ ) {
+        for (var i = 0; i < data.length; i++) {
           if (data[i].cId === controller.get('authentication').getTok()) {
             controller.calDiagram.push(data[i]);
           } else {

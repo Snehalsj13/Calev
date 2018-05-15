@@ -6,8 +6,7 @@ export default Controller.extend({
   authentication: Ember.inject.service(),
   toastMessages: Ember.inject.service(),
   listOfCompanies: [],
-  init() {
-  },
+  init() {},
   actions: {
     goBackToIndex() {
       this.transitionToRoute('index');

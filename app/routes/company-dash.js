@@ -62,12 +62,12 @@ export default Route.extend({
               promise17.then(() => {
                 console.log(this.mainNames);
               });
-            },50);
+            }, 50);
           });
           var promise2 = new Promise((resolve, reject) => {
             setTimeout(() => {
               for (var i = 0; i < controller.listOfAppointments.length; i++) {
-                el.append('<a class="boxCompany1">User: ' + this.mainNames[controller.listOfAppointments[i].uId]  + ',' + '<br>' + 'Start: ' + moment(controller.listOfAppointments[i].start).format('MMMM Do YYYY, h:mm A') + ',' + '<br>' + 'End:' + moment(controller.listOfAppointments[i].end).format('MMMM Do YYYY, h:mm A') + '</a>');
+                el.append('<a class="boxCompany1">User: ' + this.mainNames[controller.listOfAppointments[i].uId] + ',' + '<br>' + 'Start: ' + moment(controller.listOfAppointments[i].start).format('MMMM Do YYYY, h:mm A') + ',' + '<br>' + 'End:' + moment(controller.listOfAppointments[i].end).format('MMMM Do YYYY, h:mm A') + '</a>');
               }
               resolve();
             }, 150);

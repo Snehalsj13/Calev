@@ -5,7 +5,7 @@ export default Controller.extend({
   firebaseApp: Ember.inject.service(),
   authentication: Ember.inject.service(),
   toastMessages: Ember.inject.service(),
-  mainData : {},
+  mainData: {},
   calDiagram: [],
   init() {
     // Get data
@@ -51,19 +51,27 @@ export default Controller.extend({
       views: {
         week: {
           type: 'agendaWeek',
-          duration: {weeks: 1}
+          duration: {
+            weeks: 1
+          }
         },
         week2: {
           type: 'agendaWeek',
-          duration: {weeks: 2}
+          duration: {
+            weeks: 2
+          }
         },
         week3: {
           type: 'agendaWeek',
-          duration: {weeks: 3}
+          duration: {
+            weeks: 3
+          }
         },
         week4: {
           type: 'agendaWeek',
-          duration: {weeks: 4}
+          duration: {
+            weeks: 4
+          }
         },
       },
       allDaySlot: false,
@@ -93,7 +101,7 @@ export default Controller.extend({
   upCal() {
     $('.calendar').fullCalendar('removeEvents');
     for (var i in this.calDiagram) {
-        $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
+      $('.calendar').fullCalendar('renderEvent', this.calDiagram[i], true);
     }
   }
 });

@@ -7,7 +7,11 @@ export default Controller.extend({
   listOfAppointments: [],
   actions: {
     goToCompanyCalendar() {
-      this.transitionToRoute('companyCalendar', {queryParams: {cN: this.get('authentication').getTok()}})
+      this.transitionToRoute('companyCalendar', {
+        queryParams: {
+          cN: this.get('authentication').getTok()
+        }
+      })
     },
     goBackToIndex() {
       this.transitionToRoute('index');
